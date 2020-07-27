@@ -1,0 +1,23 @@
+﻿<input type="text" @bind-value="@message" />
+<input type="text" @bind-value="@anotherMessage" />
+<input type="button" value="Cambiar texto" @onclick="ChangeText" />
+
+@code{
+
+    [Parameter]
+    public string Message { get; set; }
+
+    string message = "Un contenido";
+    string anotherMessage = "";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        message = Message;
+    }
+
+    private void ChangeText()
+    {
+        message = $"{anotherMessage}";
+    }
+} 

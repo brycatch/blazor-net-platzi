@@ -20,6 +20,9 @@ namespace Entities
 
         public int TotalQuantity { get; set; }
 
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
+        public CategoryEntity Category { get; set; }
+
+        public ICollection<StorageEntity> StorageEntities { get; set; }
     }
 }

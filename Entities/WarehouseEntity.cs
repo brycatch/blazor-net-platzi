@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities
 {
-    class WarehouseEntity
+    public class WarehouseEntity
     {
         [Key]
         public int WarehouseId { get; set; }
@@ -13,5 +13,7 @@ namespace Entities
         public string Name { get; set; }
 
         public string Address { get; set; }
+
+        public ICollection<StorageEntity> StorageEntities { get; set; }
     }
 }

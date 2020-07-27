@@ -9,13 +9,10 @@ namespace Entities
     {
         [Key]
         public int InOutId { get; set; }
-
         public DateTime InOutDate { get; set; }
-
         public int Quantity { get; set; }
-
         public bool IsInput { get; set; }
-
         public int StorageId { get; set; }
+        public StorageEntity Storage { get; set; }
     }
 }

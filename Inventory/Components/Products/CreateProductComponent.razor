@@ -31,7 +31,7 @@
             <label>
                 Categoría
             </label>
-            <InputSelect @bind-Value="product.CategoryId">
+            <InputSelect @bind-Value="product.CategoryId" class="form-control">
                 @foreach (var category in categories)
                 {
                     <option value="@category.CategoryId">@category.CategoryName</option>

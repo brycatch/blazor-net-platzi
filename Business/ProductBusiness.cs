@@ -9,20 +9,20 @@ namespace Business
 {
     public class ProductBusiness
     {
-        public List<ProductEntity> List()
+        public static List<ProductEntity> List()
         {
             using InventaryContext db = new InventaryContext();
             return db.Products.ToList();
         }
 
-        public void Create(ProductEntity product)
+        public static void Create(ProductEntity product)
         {
             using InventaryContext db = new InventaryContext();
             db.Products.Add(product);
             db.SaveChanges();
         }
 
-        public void Update(ProductEntity product)
+        public static void Update(ProductEntity product)
         {
             using InventaryContext db = new InventaryContext();
             db.Products.Update(product);

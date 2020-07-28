@@ -25,6 +25,7 @@ namespace DataAccess
                     .SetBasePath(Path.Combine(Directory.GetCurrentDirectory()))
                     .AddJsonFile("appsettings.json")
                     .Build();
+                string s = configuration.GetConnectionString("Local");
 
                 options.UseSqlServer(configuration.GetConnectionString("Local"));
             }

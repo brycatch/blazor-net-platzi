@@ -340,4 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # Connection String to Data Access
-DataAccess/appsettings.json
+appsettings.json

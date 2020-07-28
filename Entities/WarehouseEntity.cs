@@ -8,10 +8,15 @@ namespace Entities
     public class WarehouseEntity
     {
         [Key]
-        public int WarehouseId { get; set; }
+        [StringLength(50)]
+        public string WarehouseId { get; set; }
 
-        public string Name { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string WarehouseName { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string Address { get; set; }
 
         public ICollection<StorageEntity> StorageEntities { get; set; }

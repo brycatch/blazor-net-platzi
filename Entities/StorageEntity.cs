@@ -8,13 +8,21 @@ namespace Entities
     public class StorageEntity
     {
         [Key]
+        [StringLength(50)]
         public int StorageId { get; set; }
+
+        [Required]
         public DateTime LastUpdate { get; set; }
+
+        [Required]
         public int PartialQuantity { get; set; }
-        public int ProductId { get; set; }
+
+        public string ProductId { get; set; }
         public ProductEntity Product { get; set; }
-        public int WarehouseId { get; set; }
+
+        public string WarehouseId { get; set; }
         public WarehouseEntity Warehouse { get; set; }
+
         public ICollection<InOutEntity> InOuts { get; set; }
 
     }

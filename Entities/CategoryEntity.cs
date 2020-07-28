@@ -13,7 +13,7 @@ namespace Entities
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
 
         public ICollection<ProductEntity> Products;
     }

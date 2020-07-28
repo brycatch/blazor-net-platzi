@@ -13,10 +13,10 @@ namespace Entities
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string ProductName { get; set; }
 
         [StringLength(600)]
-        public string Description { get; set; }
+        public string ProductDescription { get; set; }
 
         public int TotalQuantity { get; set; }
 

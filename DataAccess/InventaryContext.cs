@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataAccess
 {
-    public class InventoryContext : DbContext
+    public class InventaryContext : DbContext
     {
         public DbSet<CategoryEntity> Categories { get; set; }
         public DbSet<InOutEntity> InOuts { get; set; }

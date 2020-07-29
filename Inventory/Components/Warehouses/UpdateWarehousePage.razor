@@ -1,0 +1,8 @@
+﻿@page "/warehouse/update/{id}"
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+}
+
+<UpdateWarehouseComponent id="@id" />

@@ -9,6 +9,12 @@ namespace Business
 {
     public class WarehouseBusiness
     {
+        public static WarehouseEntity Get(string id)
+        {
+            using InventaryContext db = new InventaryContext();
+            return db.Warehouses.FirstOrDefault(warehouse => warehouse.WarehouseId == id);
+        }
+
         public static List<WarehouseEntity> List()
         {
             using InventaryContext db = new InventaryContext();

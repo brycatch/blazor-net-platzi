@@ -4,10 +4,10 @@
 @inject NavigationManager NavManager
 
 @code {
-    CategoryEntity category = new CategoryEntity();
+    CategoryEntity category = new CategoryEntity();    
 
     private void Save()
-    {
+    {        
         CategoryBusiness.Create(category);
         NavManager.NavigateTo("category/list");
     }

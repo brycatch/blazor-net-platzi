@@ -1,0 +1,35 @@
+﻿@using Entities
+@using Business
+
+@code {
+    List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        warehouses = WarehouseBusiness.List();
+    }
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Referencia</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var warehouse in warehouses)
+        {
+            <tr>
+                <td>@warehouse.WarehouseId</td>
+                <td>@warehouse.WarehouseName</td>
+                <td>@warehouse.Address</td>
+                <td>
+                    <a href="warehouse/update/@warehouse.WarehouseId">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

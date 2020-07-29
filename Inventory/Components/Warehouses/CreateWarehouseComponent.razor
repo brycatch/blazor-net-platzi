@@ -1,0 +1,37 @@
+﻿@using Entities
+@using Business
+
+@inject NavigationManager NavManager
+
+@code{
+    WarehouseEntity warehouse = new WarehouseEntity();
+
+    protected override async Task OnInitializedAsync()
+    {
+        warehouse.WarehouseId = Guid.NewGuid().ToString();
+    }
+
+    private void Save()
+    {
+        WarehouseBusiness.Create(warehouse);
+        NavManager.NavigateTo("warehouse/list");
+    }
+}
+
+<div>
+    <EditForm Model="warehouse">
+        <div class="form-group">
+            <label>Referencia:</label>
+            <InputText @bind-Value="warehouse.WarehouseId" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label>Nombre</label>
+            <InputText @bind-Value="warehouse.WarehouseName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Dirección</label>
+            <InputText @bind-Value="warehouse.Address" class="form-control" />
+        </div>
+        <input type="button" value="Guardar" class="btn btn-outline-dark" @onclick="Save" />
+    </EditForm>
+</div>

@@ -1,11 +1,17 @@
 ﻿@using Entities
 @using Business
 
+@inject NavigationManager NavManager
+
 @code {
     ProductEntity product = new ProductEntity();
     List<CategoryEntity> categories = new List<CategoryEntity>();
 
-    private void SaveProduct() => ProductBusiness.Create(product);
+    private void SaveProduct()
+    {
+        ProductBusiness.Create(product);
+        NavManager.NavigateTo("product/list");
+    }
 
     protected override async Task OnInitializedAsync()
     {

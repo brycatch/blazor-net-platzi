@@ -1,0 +1,56 @@
+﻿@using Entities
+@using Business
+
+@inject NavigationManager NavManager
+
+@code {
+    StorageEntity storage = new StorageEntity();
+    List<ProductEntity> products = new List<ProductEntity>();
+    List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = ProductBusiness.List();
+        warehouses = WarehouseBusiness.List();
+    }
+
+    private void Save()
+    {
+        StorageBusiness.Create(storage);
+        NavManager.NavigateTo("storage/list");
+    }
+}
+
+<div>
+    <EditForm Model="storage">
+        <div class="form-group">
+            <label>Cantidad</label>
+            <InputNumber type="number" @bind-Value="storage.PartialQuantity" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Producto</label>
+            <InputSelect @bind-Value="storage.ProductId" class="form-control">
+                <option value="">Seleccione...</option>
+                @foreach (var product in products)
+                {
+                    <option value="@product.ProductId">
+                        @product.ProductName
+                    </option>
+                }
+            </InputSelect>
+        </div>
+        <div class="form-group">
+            <label>Almacén</label>
+            <InputSelect @bind-Value="storage.WarehouseId" class="form-control">
+                <option value="">Seleccione...</option>
+                @foreach (var warehouse in warehouses)
+                {
+                    <option value="@warehouse.WarehouseId">
+                        @warehouse.WarehouseName
+                    </option>
+                }
+            </InputSelect>
+        </div>
+        <input type="button" value="Guardar" @onclick="Save" />
+    </EditForm>
+</div>
